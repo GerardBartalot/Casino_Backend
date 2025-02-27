@@ -1,0 +1,12 @@
+package FondoRoyaleApplication.constants.commons;
+
+public class ApiPathVariables {
+    public static final String USER_BASE = "/user";
+    public static final String REGISTER = "/register";
+    public static final String LOGIN = "/login";
+    public static final String INDEX = "/index";
+    public static final String FIND_BY_NAME = "/name/{name}";
+    public static final String DELETE_USER = "/delete/{id}";
+    public static final String READ_USER = "/read/{id}";
+    public static final String UPDATE_USER = "/update/{id}";
+}

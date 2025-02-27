@@ -1,6 +1,8 @@
-package FondoRoyaleApplication;
+package FondoRoyaleApplication.repositories;
 
 import java.util.List;
+
+import FondoRoyaleApplication.entities.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
