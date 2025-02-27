@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import FondoRoyaleApplication.controllers.impl.UserController;
+import FondoRoyaleApplication.entities.User;
+import FondoRoyaleApplication.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
