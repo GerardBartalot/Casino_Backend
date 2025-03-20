@@ -9,4 +9,6 @@ public class ApiPathVariables {
     public static final String DELETE_USER = "/delete/{id}";
     public static final String READ_USER = "/read/{id}";
     public static final String UPDATE_USER = "/update/{id}";
+    public static final String GET_USER_FONDOCOINS = "/{id}/fondocoins";
+    public static final String UPDATE_USER_FONDOCOINS = "/{id}/fondocoins";
 }

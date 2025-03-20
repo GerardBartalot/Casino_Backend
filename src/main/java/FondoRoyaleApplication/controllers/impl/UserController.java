@@ -49,4 +49,14 @@ public class UserController implements UserApi {
 	public ResponseEntity<Map<String, String>> updateUser(@PathVariable int id, @RequestBody User updatedUser) {
 		return userService.updateUser(id, updatedUser);
 	}
+	
+	@Override
+	public ResponseEntity<Integer> getFondoCoinsByUser(@PathVariable int id) {
+	    return userService.getFondoCoinsByUser(id);
+	}
+
+	@Override
+	public ResponseEntity<Map<String, String>> updateFondoCoinsByUser(@PathVariable int id, @RequestBody int fondocoins) {
+	    return userService.updateFondoCoinsByUser(id, fondocoins);
+	}
 }
