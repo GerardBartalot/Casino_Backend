@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,4 +75,26 @@ public class UserServiceImpl implements UserService {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "User not found"));
     }
+    
+    @Override
+    public ResponseEntity<Integer> getFondoCoinsByUser(int id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.map(value -> ResponseEntity.ok(value.getFondocoins()))
+                   .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @Override
+    public ResponseEntity<Map<String, String>> updateFondoCoinsByUser(int id, int fondocoins) {
+        Optional<User> userOptional = userRepository.findById(id);
+        
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setFondocoins(fondocoins);
+            userRepository.save(user);
+            return ResponseEntity.ok(Map.of("message", "Fondocoins updated successfully"));
+        }
+        
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "User not found"));
+    }
+ 
 }
