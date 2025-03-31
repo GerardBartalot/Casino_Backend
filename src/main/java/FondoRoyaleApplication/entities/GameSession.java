@@ -22,15 +22,14 @@ public class GameSession {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "game_id", nullable = false)
-    private Game game;
+    @Column(name = "game_name", nullable = false)
+    private String gameName;
 
     @Column(name = "session_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime sessionDate = LocalDateTime.now();
 
-    @Column(name = "result", length = 50)
-    private String result;
+    @Column(name = "rounds")
+    private String rounds;
 
     @Column(name = "experience_earned")
     private int experienceEarned;

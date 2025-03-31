@@ -102,10 +102,6 @@ public class UserServiceImpl implements UserService {
         System.out.println("Usuario no encontrado con id: " + id);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "User not found"));
     }
-
-    
-    
-    
     
     @Override
     public ResponseEntity<Integer> getExperienceByUser(int id) {
@@ -133,6 +129,4 @@ public class UserServiceImpl implements UserService {
         System.out.println("Usuario no encontrado con id: " + id);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "User not found"));
     }
-
- 
 }
