@@ -16,4 +16,6 @@ public interface UserService {
     ResponseEntity<Map<String, String>> updateUser(int id, User updatedUser);
     ResponseEntity<Integer> getFondoCoinsByUser(int id);
     ResponseEntity<Map<String, String>> updateFondoCoinsByUser(int id, int fondocoins);
+    ResponseEntity<Integer> getExperienceByUser(int id);
+    ResponseEntity<Map<String, String>> updateExperienceByUser(int id, int experience);
 }

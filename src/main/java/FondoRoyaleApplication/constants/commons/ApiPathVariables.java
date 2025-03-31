@@ -11,4 +11,6 @@ public class ApiPathVariables {
     public static final String UPDATE_USER = "/update/{id}";
     public static final String GET_USER_FONDOCOINS = "/{id}/fondocoins";
     public static final String UPDATE_USER_FONDOCOINS = "/{id}/fondocoins";
+    public static final String GET_USER_EXPERIENCE = "/{id}/experience";
+    public static final String UPDATE_USER_EXPERIENCE = "/{id}/experience";
 }

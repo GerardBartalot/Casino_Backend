@@ -36,4 +36,10 @@ public interface UserApi {
     
     @PutMapping(ApiPathVariables.UPDATE_USER_FONDOCOINS)
     ResponseEntity<Map<String, String>> updateFondoCoinsByUser(@PathVariable int id, @RequestBody int fondocoins);
+    
+    @GetMapping(ApiPathVariables.GET_USER_EXPERIENCE)
+    ResponseEntity<Integer> getExperienceByUser(@PathVariable int id);
+    
+    @PutMapping(ApiPathVariables.UPDATE_USER_EXPERIENCE)
+    ResponseEntity<Map<String, String>> updateExperienceByUser(@PathVariable int id, @RequestBody int experience);
 }

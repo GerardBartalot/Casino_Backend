@@ -85,16 +85,54 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<Map<String, String>> updateFondoCoinsByUser(int id, int fondocoins) {
-        Optional<User> userOptional = userRepository.findById(id);
+        System.out.println("Iniciando updateFondoCoinsByUser con id: " + id + " y fondocoins: " + fondocoins);
         
+        Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
+            System.out.println("Usuario encontrado: " + user.getUsername());
+            
             user.setFondocoins(fondocoins);
             userRepository.save(user);
+            System.out.println("Fondocoins actualizados a: " + fondocoins);
+            
             return ResponseEntity.ok(Map.of("message", "Fondocoins updated successfully"));
         }
         
+        System.out.println("Usuario no encontrado con id: " + id);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "User not found"));
     }
+
+    
+    
+    
+    
+    @Override
+    public ResponseEntity<Integer> getExperienceByUser(int id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.map(value -> ResponseEntity.ok(value.getExperiencePoints()))
+                   .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @Override
+    public ResponseEntity<Map<String, String>> updateExperienceByUser(int id, int experience) {
+        System.out.println("Iniciando updateExperienceByUser con id: " + id + " y experiencia: " + experience);
+        
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            System.out.println("Usuario encontrado: " + user.getUsername());
+            
+            user.setExperiencePoints(experience);
+            userRepository.save(user);
+            System.out.println("Experiencia actualizada a: " + user.getExperiencePoints());
+            
+            return ResponseEntity.ok(Map.of("message", "Experience updated successfully"));
+        }
+        
+        System.out.println("Usuario no encontrado con id: " + id);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "User not found"));
+    }
+
  
 }

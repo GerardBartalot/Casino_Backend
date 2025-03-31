@@ -58,5 +58,15 @@ public class UserController implements UserApi {
 	@Override
 	public ResponseEntity<Map<String, String>> updateFondoCoinsByUser(@PathVariable int id, @RequestBody int fondocoins) {
 	    return userService.updateFondoCoinsByUser(id, fondocoins);
+	}   
+	    
+	@Override
+	public ResponseEntity<Integer> getExperienceByUser(@PathVariable int id) {
+		return userService.getExperienceByUser(id);
+	}
+
+	@Override
+	public ResponseEntity<Map<String, String>> updateExperienceByUser(@PathVariable int id, @RequestBody int experience) {
+		return userService.updateExperienceByUser(id, experience);
 	}
 }
