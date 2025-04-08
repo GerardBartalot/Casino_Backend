@@ -69,4 +69,5 @@ public class UserController implements UserApi {
 	public ResponseEntity<Map<String, String>> updateExperienceByUser(@PathVariable int id, @RequestBody int experience) {
 		return userService.updateExperienceByUser(id, experience);
 	}
+
 }

@@ -15,4 +15,5 @@ public class ApiPathVariables {
     public static final String UPDATE_USER_EXPERIENCE = "/{id}/experience";
     public static final String GAME_BASE = "/sessionGame";
     public static final String SAVE = "/save";
+    public static final String SESSIONS = "/{id}/sessions";
 }
