@@ -154,6 +154,19 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	
+	@Override
+	public ResponseEntity<Map<String, String>> deleteProfilePicture(int id) {
+	    Optional<User> userOptional = userRepository.findById(id);
+	    if (userOptional.isPresent()) {
+	        User user = userOptional.get();
+	        user.setProfilePicture(null); // Establece a null para eliminar
+	        userRepository.save(user);
+	        return ResponseEntity.ok(Map.of("message", "Foto de perfil eliminada"));
+	    }
+	    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "Usuario no encontrado"));
+	}
+	
+	
 	
 	
 }

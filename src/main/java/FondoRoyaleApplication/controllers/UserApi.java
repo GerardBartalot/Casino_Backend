@@ -48,4 +48,7 @@ public interface UserApi {
 
     @GetMapping(ApiPathVariables.GET_PROFILE_PICTURE)
     ResponseEntity<String> getProfilePicture(@PathVariable int id);
+    
+    @DeleteMapping(ApiPathVariables.DELETE_PROFILE_PICTURE)
+    ResponseEntity<Map<String, String>> deleteProfilePicture(@PathVariable int id);
 }

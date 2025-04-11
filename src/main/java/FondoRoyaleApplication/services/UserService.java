@@ -20,4 +20,5 @@ public interface UserService {
     ResponseEntity<Map<String, String>> updateExperienceByUser(int id, int experience);
     ResponseEntity<Map<String, String>> updateProfilePicture(int id, String profilePicture);
     ResponseEntity<String> getProfilePicture(int id);
+    ResponseEntity<Map<String, String>> deleteProfilePicture(int id);
 }
