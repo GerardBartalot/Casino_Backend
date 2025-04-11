@@ -71,7 +71,6 @@ public class UserController implements UserApi {
 			@RequestBody int experience) {
 		return userService.updateExperienceByUser(id, experience);
 	}
-	
 	@Override
 	public ResponseEntity<Map<String, String>> updateProfilePicture(@PathVariable int id, @RequestBody String profilePicture) {
 	    return userService.updateProfilePicture(id, profilePicture);
@@ -81,13 +80,9 @@ public class UserController implements UserApi {
 	public ResponseEntity<String> getProfilePicture(@PathVariable int id) {
 	    return userService.getProfilePicture(id);
 	}
-
 	@Override
 	public ResponseEntity<Map<String, String>> deleteProfilePicture(int id) {
 		return userService.deleteProfilePicture(id);
 	}
-	
-	
-	
 
 }
