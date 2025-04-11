@@ -81,6 +81,11 @@ public class UserController implements UserApi {
 	public ResponseEntity<String> getProfilePicture(@PathVariable int id) {
 	    return userService.getProfilePicture(id);
 	}
+
+	@Override
+	public ResponseEntity<Map<String, String>> deleteProfilePicture(int id) {
+		return userService.deleteProfilePicture(id);
+	}
 	
 	
 	
