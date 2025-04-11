@@ -4,9 +4,9 @@ import FondoRoyaleApplication.controllers.UserApi;
 import FondoRoyaleApplication.entities.User;
 import FondoRoyaleApplication.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Map;
 
@@ -49,25 +49,36 @@ public class UserController implements UserApi {
 	public ResponseEntity<Map<String, String>> updateUser(@PathVariable int id, @RequestBody User updatedUser) {
 		return userService.updateUser(id, updatedUser);
 	}
-	
+
 	@Override
 	public ResponseEntity<Integer> getFondoCoinsByUser(@PathVariable int id) {
-	    return userService.getFondoCoinsByUser(id);
+		return userService.getFondoCoinsByUser(id);
 	}
 
 	@Override
-	public ResponseEntity<Map<String, String>> updateFondoCoinsByUser(@PathVariable int id, @RequestBody int fondocoins) {
-	    return userService.updateFondoCoinsByUser(id, fondocoins);
-	}   
-	    
+	public ResponseEntity<Map<String, String>> updateFondoCoinsByUser(@PathVariable int id,
+			@RequestBody int fondocoins) {
+		return userService.updateFondoCoinsByUser(id, fondocoins);
+	}
+
 	@Override
 	public ResponseEntity<Integer> getExperienceByUser(@PathVariable int id) {
 		return userService.getExperienceByUser(id);
 	}
 
 	@Override
-	public ResponseEntity<Map<String, String>> updateExperienceByUser(@PathVariable int id, @RequestBody int experience) {
+	public ResponseEntity<Map<String, String>> updateExperienceByUser(@PathVariable int id,
+			@RequestBody int experience) {
 		return userService.updateExperienceByUser(id, experience);
+	}
+	@Override
+	public ResponseEntity<Map<String, String>> updateProfilePicture(@PathVariable int id, @RequestBody String profilePicture) {
+	    return userService.updateProfilePicture(id, profilePicture);
+	}
+
+	@Override
+	public ResponseEntity<String> getProfilePicture(@PathVariable int id) {
+	    return userService.getProfilePicture(id);
 	}
 
 }

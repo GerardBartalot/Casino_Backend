@@ -42,4 +42,10 @@ public interface UserApi {
     
     @PutMapping(ApiPathVariables.UPDATE_USER_EXPERIENCE)
     ResponseEntity<Map<String, String>> updateExperienceByUser(@PathVariable int id, @RequestBody int experience);
+    
+    @PutMapping(ApiPathVariables.UPDATE_PROFILE_PICTURE)
+    ResponseEntity<Map<String, String>> updateProfilePicture(@PathVariable int id, @RequestBody String profilePicture);
+
+    @GetMapping(ApiPathVariables.GET_PROFILE_PICTURE)
+    ResponseEntity<String> getProfilePicture(@PathVariable int id);
 }
