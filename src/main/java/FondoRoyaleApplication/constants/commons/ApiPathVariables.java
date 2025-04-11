@@ -17,4 +17,5 @@ public class ApiPathVariables {
     public static final String SAVE = "/save";
     public static final String UPDATE_PROFILE_PICTURE = "/{id}/profile-picture";
     public static final String GET_PROFILE_PICTURE = "/{id}/profile-picture";
+    public static final String SESSIONS = "/{id}/sessions";
 }
