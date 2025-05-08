@@ -20,8 +20,8 @@ public class GameSessionController implements GameSessionApi {
 		return gameSessionService.saveGameSession(newGameSession);
 	}
 	
-	 @Override
-	    public ResponseEntity<List<GameSession>> getGameSessionsByUserId(@PathVariable int id) {
-	        return gameSessionService.getGameSessionsByUserId(id);
-	    }
+	@Override
+	public ResponseEntity<List<GameSession>> getGameSessionsByUserId(@PathVariable int id) {
+		return gameSessionService.getGameSessionsByUserId(id);
+	}
 }
