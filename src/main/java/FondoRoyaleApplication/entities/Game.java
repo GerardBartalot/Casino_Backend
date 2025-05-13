@@ -27,7 +27,4 @@ public class Game {
 
     @Column(name = "game_img")
     private String gameImg;
-    
-    @Column(name = "game_rules")
-    private String gameRules;
 }

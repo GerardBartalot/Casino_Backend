@@ -21,9 +21,10 @@ public class GameSession {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-    @Column(name = "game_name", nullable = false)
-    private String gameName;
+    
+    @ManyToOne
+    @JoinColumn(name = "game_id", nullable = false)
+    private Game game;
 
     @Column(name = "session_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime sessionDate = LocalDateTime.now();
