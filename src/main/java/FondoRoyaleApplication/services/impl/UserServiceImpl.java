@@ -2,6 +2,7 @@ package FondoRoyaleApplication.services.impl;
 
 import FondoRoyaleApplication.entities.User;
 import FondoRoyaleApplication.repositories.UserRepository;
+import FondoRoyaleApplication.services.EncryptionUtils;
 import FondoRoyaleApplication.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,12 +23,24 @@ public class UserServiceImpl implements UserService {
 		if (newUser.getName() == null || newUser.getUsername() == null || newUser.getPassword() == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+		
+		newUser.setPassword(EncryptionUtils.encrypt(newUser.getPassword()));
 		return new ResponseEntity<>(userRepository.save(newUser), HttpStatus.CREATED);
 	}
 
 	@Override
 	public ResponseEntity<User> validateLogin(String username, String password) {
-		User user = userRepository.findByUsernameAndPassword(username, password);
+		User user = userRepository.findByName(username);
+		if (user != null) {
+	        try {
+	            String decryptedPassword = EncryptionUtils.decrypt(user.getPassword());
+	            if (decryptedPassword.equals(password)) {
+	                return new ResponseEntity<>(user, HttpStatus.OK);
+	            }
+	        } catch (Exception e) {
+	        	return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	        }
+	    }
 		return user != null ? new ResponseEntity<>(user, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
 
@@ -72,7 +85,7 @@ public class UserServiceImpl implements UserService {
 			if (updatedUser.getUsername() != null)
 				user.setUsername(updatedUser.getUsername());
 			if (updatedUser.getPassword() != null)
-				user.setPassword(updatedUser.getPassword());
+				user.setPassword(EncryptionUtils.encrypt(updatedUser.getPassword()));
 			userRepository.save(user);
 			return ResponseEntity.ok(Map.of("message", "User updated successfully"));
 		}
