@@ -23,7 +23,6 @@ public class GameSessionServiceImpl implements GameSessionService {
 	@Override
     public ResponseEntity<GameSession> saveGameSession(GameSession newGameSession) {
         if (newGameSession == null ||
-            newGameSession.getGameName() == null || newGameSession.getGameName().isEmpty() ||
             newGameSession.getRounds() == null || newGameSession.getRounds().isEmpty() ||
             newGameSession.getExperienceEarned() < 0 ||
             newGameSession.getFondocoinsSpent() < 0 ||

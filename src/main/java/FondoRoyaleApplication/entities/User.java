@@ -24,11 +24,13 @@ public class User {
     private String name;
     private String username;
     private String password;
+    private String dateOfBirth;
     private int fondocoins;
     private int experiencePoints;
+    @Column(name = "registration_date", insertable = false, updatable = false)
     private Date registrationDate;
     
-    @Lob // Para datos grandes
+    @Lob
     @Column(columnDefinition = "LONGTEXT") 
-    private String profilePicture; // Almacenará la imagen en Base64
+    private String profilePicture;
 }
