@@ -22,5 +22,8 @@ public class ApiPathVariables {
     
     public static final String GAMES_BASE = "/games";
     public static final String GET_ALL_GAMES = "/allGames";
+    
+    public static final String DAILY_REWARD = "/{id}/daily-reward";
+    public static final String LAST_DAILY_REWARD = "/{id}/last-daily-reward";
 
 }

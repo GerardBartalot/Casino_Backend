@@ -6,6 +6,8 @@ import FondoRoyaleApplication.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -70,18 +72,30 @@ public class UserController implements UserApi {
 			@RequestBody int experience) {
 		return userService.updateExperienceByUser(id, experience);
 	}
+
 	@Override
-	public ResponseEntity<Map<String, String>> updateProfilePicture(@PathVariable int id, @RequestBody String profilePicture) {
-	    return userService.updateProfilePicture(id, profilePicture);
+	public ResponseEntity<Map<String, String>> updateProfilePicture(@PathVariable int id,
+			@RequestBody String profilePicture) {
+		return userService.updateProfilePicture(id, profilePicture);
 	}
 
 	@Override
 	public ResponseEntity<String> getProfilePicture(@PathVariable int id) {
-	    return userService.getProfilePicture(id);
+		return userService.getProfilePicture(id);
 	}
 	@Override
 	public ResponseEntity<Map<String, String>> deleteProfilePicture(int id) {
 		return userService.deleteProfilePicture(id);
+	}
+
+	@Override
+	public ResponseEntity<Map<String, String>> claimDailyReward(@PathVariable int id) {
+		return userService.claimDailyReward(id);
+	}
+
+	@Override
+	public ResponseEntity<Map<String, String>> getLastDailyReward(@PathVariable int id) {
+		return userService.getLastDailyReward(id);
 	}
 
 }

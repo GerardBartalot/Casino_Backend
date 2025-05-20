@@ -3,6 +3,7 @@ package FondoRoyaleApplication.services;
 import FondoRoyaleApplication.entities.User;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -21,4 +22,6 @@ public interface UserService {
     ResponseEntity<Map<String, String>> updateProfilePicture(int id, String profilePicture);
     ResponseEntity<String> getProfilePicture(int id);
     ResponseEntity<Map<String, String>> deleteProfilePicture(int id);
+    ResponseEntity<Map<String, String>> claimDailyReward(int id);
+    ResponseEntity<Map<String, String>> getLastDailyReward(int id);
 }

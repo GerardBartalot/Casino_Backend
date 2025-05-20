@@ -4,7 +4,7 @@ import FondoRoyaleApplication.constants.commons.ApiPathVariables;
 import FondoRoyaleApplication.entities.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -51,4 +51,10 @@ public interface UserApi {
     
     @DeleteMapping(ApiPathVariables.DELETE_PROFILE_PICTURE)
     ResponseEntity<Map<String, String>> deleteProfilePicture(@PathVariable int id);
+    
+    @PutMapping(ApiPathVariables.DAILY_REWARD)
+    ResponseEntity<Map<String, String>> claimDailyReward(@PathVariable int id);
+    
+    @GetMapping(ApiPathVariables.LAST_DAILY_REWARD)
+    ResponseEntity<Map<String, String>> getLastDailyReward(@PathVariable int id);
 }

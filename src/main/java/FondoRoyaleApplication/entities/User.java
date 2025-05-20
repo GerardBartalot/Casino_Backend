@@ -11,6 +11,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Column;
+import java.time.LocalDateTime;
+
 
 @Entity
 @Data
@@ -27,10 +29,14 @@ public class User {
     private String dateOfBirth;
     private int fondocoins;
     private int experiencePoints;
+    
     @Column(name = "registration_date", insertable = false, updatable = false)
     private Date registrationDate;
     
     @Lob
     @Column(columnDefinition = "LONGTEXT") 
     private String profilePicture;
+    
+    @Column(name = "last_daily_reward", nullable = true)
+    private LocalDateTime lastDailyReward;
 }
