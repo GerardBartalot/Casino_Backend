@@ -22,7 +22,7 @@ public interface UserApi {
     @GetMapping(ApiPathVariables.FIND_BY_NAME)
     ResponseEntity<User> findByName(@PathVariable String name);
 
-    @PutMapping(ApiPathVariables.DELETE_USER)
+    @DeleteMapping(ApiPathVariables.DELETE_USER)
     ResponseEntity<Map<String, String>> deleteUser(@PathVariable int id);
 
     @GetMapping(ApiPathVariables.READ_USER)
