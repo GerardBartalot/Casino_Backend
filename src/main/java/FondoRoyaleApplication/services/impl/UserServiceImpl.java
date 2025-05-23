@@ -34,9 +34,10 @@ public class UserServiceImpl implements UserService {
 
         return new ResponseEntity<>(userRepository.save(newUser), HttpStatus.CREATED);
     }
+
     @Override
     public ResponseEntity<User> validateLogin(String username, String password) {
-        User user = userRepository.findByName(username);
+        User user = userRepository.findByUsername(username);
         if (user != null) {
             try {
                 String decryptedPassword = EncryptionUtils.decrypt(user.getPassword());
@@ -47,7 +48,7 @@ public class UserServiceImpl implements UserService {
                 return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
             }
         }
-        return user != null ? new ResponseEntity<>(user, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
     @Override

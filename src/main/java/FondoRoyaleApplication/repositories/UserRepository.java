@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends CrudRepository<User, Integer> {
 	User findByUsernameAndPassword(String username, String password);
 	User findByName(String name);
+	User findByUsername(String username);
 	List<User> findByNameContainingIgnoreCase(String name);
 }
 

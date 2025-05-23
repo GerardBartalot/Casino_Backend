@@ -31,7 +31,7 @@ public class User {
     private int experiencePoints;
     
     @Column(name = "registration_date", insertable = false, updatable = false)
-    private Date registrationDate;
+    private LocalDateTime registrationDate;
     
     @Lob
     @Column(columnDefinition = "LONGTEXT") 
